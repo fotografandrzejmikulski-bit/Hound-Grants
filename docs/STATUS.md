@@ -4,7 +4,7 @@ _Last reviewed: 2026-09-05_
 
 ## Current state
 
-The repository was empty at the start of this work. It now contains the grant narrative, methodology, implementation plan, protocol, governance, ethics, reproducibility, data/model documentation, claims register, contribution/security policies, license, and citation metadata.
+The repository was empty at the start of this work. It now contains the grant narrative, methodology, implementation plan, protocol, governance, ethics, reproducibility, data/model documentation, claims register, originality/positioning review, program-verification gate, author/contact information, contribution/security policies, license, citation metadata, and submission checklist. fileciteturn20file0L2-L6
 
 ## Readiness assessment
 
@@ -13,36 +13,38 @@ The repository was empty at the start of this work. It now contains the grant na
 | Grant narrative | READY FOR EDITORIAL REVIEW | Structured and tightened from supplied material. |
 | Research question | READY | Explicitly framed around trajectory-level procedural compliance. |
 | Metrics | READY FOR IMPLEMENTATION | SR/PCR/CSR/MG formally defined; evaluator edge cases documented. |
-| Experimental protocol | READY | Standardized pre-run, run, exclusion, and reporting rules added. |
+| Experimental protocol | READY | Standardized pre-run, run, exclusion, and reporting rules documented. |
 | Safety/governance | READY FOR REVIEW | Synthetic-only boundary and evaluator isolation specified. |
 | Reproducibility | READY | Versioning, seeds, artifacts, and held-out testing specified. |
-| Claims | BLOCKED | Multiple original claims require primary-source verification; see CLAIMS_REGISTER.md. |
-| Program fit | BLOCKED | Fellowship benefits/eligibility must be verified against official program documents. |
+| Claims | BLOCKED | Multiple original claims require primary-source verification; see `CLAIMS_REGISTER.md`. |
+| Program fit | BLOCKED | Fellowship name, eligibility, benefits, and application terms require primary-source verification. |
+| Originality | BLOCKED | Substantial conceptual overlap with 2026 MAC-Bench requires an explicit differentiator. |
 | Implementation | DESIGN-READY | Architecture and MVP acceptance gates specified; executable code is not yet included. |
-| Author section | INCOMPLETE | Only author name is currently supplied; submission-specific bio/contact/affiliation remain to be added. |
+| Author section | COMPLETE | Name, phone, and email are recorded. |
 
 ## Critical findings
 
-1. The original document was much stronger as a research concept than as a submission-ready evidence package.
-2. Several numerical and market claims were overly specific without visible primary citations.
-3. Some terminology implied intentionality. The revised package treats MG as an observable behavioral divergence and explicitly avoids inferring motive.
-4. The original proposal assumed fellowship resources that are not yet independently verified here.
+1. The original document is materially stronger as a research concept than as an evidence-locked grant submission.
+2. Several numerical, model-specific, market, and benchmark claims were too specific without visible primary citations.
+3. Some terminology implied intentionality. The revised package treats MG as an observable outcome/compliance divergence and explicitly avoids inferring motive.
+4. The original proposal assumed fellowship resources that are not independently verified here.
 5. The benchmark needs a vertical-slice implementation before claiming that the full 300-scenario system exists.
+6. The novelty claim must be narrowed because contemporary research already addresses closely related dynamic compliance evaluation and uses overlapping CSR/MG terminology. citeturn445634academia72
 
-## Current external verification
+## Verified external anchors
 
-AISI publicly reports rapid increases in the length of cyber tasks frontier models can autonomously complete and notes a February 2026 estimate of a 4.7-month doubling time on its narrow cyber suite. citeturn153512search2
+Vals AI's legal evaluation work is independently documented as VLAIR, including comparison against lawyer baselines across legal workflows. citeturn445634search71turn445634search5
 
-OpenAI reported in February 2026 that SWE-bench Verified had significant contamination and test-design problems, and in July 2026 reported that a material share of SWE-bench Pro tasks were problematic as well. citeturn153512search0turn153512search1
+Vals AI's Excel Modeling Benchmark is also independently documented; published results describe complete working financial models and report results including Claude Opus 4.8 at 69.4%, Claude Sonnet 5 at 66.3%, and GPT-5.5 at 64.5%. citeturn445634search3
 
-These sources support the general rationale for execution-grounded and contamination-aware evaluation, but they do not validate every numerical or program-specific statement in the original proposal.
+These anchors support selected parts of the proposal's rationale. They do not validate all claims in the supplied source material.
 
-## Remaining author inputs
+## Remaining gate before external submission
 
-Before final grant submission, add only the author's final:
+Resolve every unchecked item in `docs/SUBMISSION_CHECKLIST.md` and `docs/PROGRAM_VERIFICATION.md`. Until then, the repository should be presented as a structured research proposal with explicit evidence controls, not as a validated benchmark release.
 
-- affiliation;
-- professional/academic biography;
-- contact details;
-- optional ORCID/website;
-- verified fellowship-specific details.
+## Author
+
+**Andrzej Mikulski**  
+Phone: +48 455 575 337  
+Email: mojealterego21@gmail.com
