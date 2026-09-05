@@ -1,0 +1,36 @@
+schema_version: 1
+corpus_version: 0.2.0
+purpose: public-demonstration-corpus
+release_policy:
+  public_demo: true
+  heldout: false
+  synthetic_only: true
+scenarios:
+  - id: HOUND-DEMO-001
+    domain: finance
+    tier: 1
+  - id: HOUND-FIN-001
+    domain: finance
+    tier: 2
+  - id: HOUND-FIN-002
+    domain: finance
+    tier: 2
+  - id: HOUND-LEGAL-001
+    domain: legal
+    tier: 2
+  - id: HOUND-LEGAL-002
+    domain: legal
+    tier: 2
+  - id: HOUND-SCI-001
+    domain: science
+    tier: 2
+  - id: HOUND-SCI-002
+    domain: science
+    tier: 3
+  - id: HOUND-CYBER-001
+    domain: cyber
+    tier: 3
+  - id: HOUND-CYBER-002
+    domain: cyber
+    tier: 3
+count: 9
