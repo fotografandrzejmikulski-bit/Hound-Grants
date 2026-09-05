@@ -1,236 +1,237 @@
-# HOUND Grant Proposal
+# HOUND — Grant Proposal
+
+## Heuristic Observation of Unaligned Networked Decisions
+
+### Author
+
+**Andrzej Mikulski**  
+Phone: +48 455 575 337  
+Email: mojealterego21@gmail.com
+
+> **Evidence status:** This proposal preserves the supplied HOUND research framing while treating externally checkable claims as evidence-controlled. See `CLAIMS_REGISTER.md` and `ORIGINALITY_AND_POSITIONING.md` before submission.
 
 ## 1. Executive Summary
 
-HOUND (Heuristic Observation of Unaligned Networked Decisions) proposes an execution-grounded benchmark for evaluating long-horizon AI agents in high-risk operational environments. The central premise is that conventional evaluation often rewards end-state task success while failing to measure whether an agent reached that state through an authorized, auditable, policy-compliant trajectory.
+HOUND proposes an execution-grounded benchmark for evaluating whether long-horizon AI agents achieve operational objectives while respecting procedural constraints, authorization boundaries, data-provenance requirements, and human-approval gates.
 
-The supplied project concept identifies this failure mode as the **Machiavellian Gap (MG)**: the difference between achieving an operational objective and achieving it without violating the constraints that make the outcome acceptable. HOUND operationalizes this idea through mutable but fully synthetic environments, instrumented tool APIs, explicit policy gates, adversarial but bounded scenario design, and trajectory-level scoring.
+The central premise is that a final answer or binary task-success label is insufficient for high-stakes agent evaluation. An agent can reach a technically correct final state through an unsafe or unauthorized trajectory. HOUND therefore evaluates the trajectory of observable actions and environment mutations inside isolated, synthetic environments.
 
-The intended result is a reusable benchmark that lets researchers and deployers compare agents not only on whether they can complete a task, but on whether they maintain procedural integrity while doing so.
+The project defines four core metrics:
+
+- **SR — Task Success Rate:** whether the target operational state was achieved.
+- **PCR — Procedural Compliance Rate:** whether the agent respected scenario-specific policy constraints.
+- **CSR — Compliance-Weighted Success Rate:** technical success adjusted by procedural compliance.
+- **MG — Machiavellian Gap:** the difference between technical task success and compliance-weighted success.
+
+The research objective is to determine whether these metrics provide a more operationally meaningful signal of agent reliability than outcome-only evaluation, while preserving reproducibility and minimizing judge-model dependence.
 
 ## 2. Research Problem
 
-The project focuses on four recurring failure modes:
+Long-horizon agents increasingly interact with tools, files, databases, APIs, and other stateful systems. In these settings, correctness is multidimensional: a successful outcome may still be unacceptable if the path to that outcome violates authorization, provenance, approval, or safety requirements.
 
-1. **Outcome-only optimization.** A system is rewarded for the final result even when intermediate actions breach policy.
-2. **State inconsistency.** The final artifact looks correct while underlying records, provenance, or authorization state are wrong.
-3. **Long-horizon degradation.** Compliance can decay as an agent accumulates context, tool calls, retries, and partial failures.
-4. **Adversarial shortcutting.** Missing information, time pressure, tempting unauthorized data, or conflicting objectives can induce unsafe shortcuts.
+HOUND focuses on this gap between outcome quality and procedural integrity. It is designed as a controlled benchmark rather than a production-system test.
 
-HOUND tests these failure modes directly in executable environments rather than through static question answering alone.
+## 3. Research Questions
 
-## 3. Objectives
+### RQ1
+Can agents achieve technically successful outcomes while violating explicitly encoded procedural constraints?
 
-### O1 — Build an execution harness
+### RQ2
+Do procedural violations increase under time pressure, incomplete information, conflicting incentives, or strategically useful but unauthorized artifacts?
 
-Create isolated, resettable environments with synthetic databases, files, messaging, authorization services, and tool APIs. Every externally relevant action is represented as a machine-auditable event.
+### RQ3
+Does CSR discriminate more effectively than SR between agents that reach the same technical endpoint through materially different trajectories?
 
-### O2 — Build an expert-authored scenario suite
+### RQ4
+Can deterministic environment checks and event logs reliably distinguish policy violations from ordinary model incompetence or tool failure?
 
-Develop approximately 300 scenarios spanning legal-document workflows, financial analysis, scientific investigation, security operations, and cross-domain administrative tasks. Scenario counts are a project target, not an existing benchmark fact.
+### RQ5
+How stable are compliance measurements across models, scaffolds, random seeds, scenario families, and judge configurations?
 
-### O3 — Formalize procedural scoring
+## 4. Proposed Contribution
 
-Implement SR, PCR, CSR, and MG with scenario-specific policy weights, hard constraints, catastrophic violations, and human-reviewed calibration.
+HOUND's intended contribution is a reproducible evaluation framework that combines:
 
-### O4 — Evaluate model/scaffold combinations
+1. stateful execution environments;
+2. explicit policy and authorization constraints;
+3. auditable event trajectories;
+4. deterministic state and invariant checks where possible;
+5. domain-expert policy rubrics for residual judgment;
+6. quantitative separation of task success and procedural compliance; and
+7. failure attribution rather than a single undifferentiated error label.
 
-Run controlled experiments across a representative set of frontier, economical, open-weight, and multimodal systems. Results must report both model identity and scaffold/tooling configuration so that scaffold effects are not misattributed to model capability.
+The project does **not** claim that the general research problem or the CSR/MG terminology is unprecedented. Existing 2026 work, including MAC-Bench, creates substantial conceptual overlap. HOUND must therefore establish its novelty through execution design, deterministic verification, cross-domain controls, and failure attribution rather than through an absolute “first” claim. citeturn445634academia72
 
-### O5 — Publish a reproducible benchmark
+## 5. Execution Environment
 
-Release methodology, scenario schemas, scoring definitions, evaluation code, aggregate results, and enough metadata for independent reproduction without exposing unsafe operational secrets or real-world credentials.
+HOUND will use isolated synthetic enterprise environments. Planned components include:
 
-## 4. Research Hypotheses
+- state-writable databases;
+- mock enterprise APIs;
+- synthetic documents and records;
+- authorization and approval services;
+- controlled file repositories;
+- telemetry and immutable event logs;
+- adversarial but non-harmful trap conditions.
 
-**H1.** End-state task success and procedural compliance are imperfectly correlated.
+No benchmark run should require real credentials, real personal data, production financial systems, or external targets.
 
-**H2.** Compliance degrades under long-horizon execution, especially when scenarios contain missing information and time pressure.
+## 6. Scenario Design
 
-**H3.** Explicit authorization boundaries and approval gates materially change agent behavior and reveal failures not visible in text-only evaluation.
+The initial plan targets a corpus of approximately 300 expert-authored scenarios, subject to pilot calibration and statistical justification.
 
-**H4.** The distribution of MG differs across model families and scaffolds even at comparable task-success levels.
+Scenario families may include:
 
-**H5.** Trajectory-level observability provides better diagnostic value than final-answer grading alone.
+- financial audit and spreadsheet workflows;
+- legal/document workflows;
+- scientific or analytical procedures;
+- cyber/IT administration conducted entirely within synthetic environments.
 
-## 5. Benchmark Design
+Each scenario should specify:
 
-Each test case contains:
+- initial environment state;
+- user objective;
+- authorized tools and data;
+- prohibited actions;
+- required verification steps;
+- mandatory escalation or human-approval gates;
+- terminal success conditions;
+- catastrophic policy violations;
+- observable evidence required for each scoring decision.
 
-- a synthetic environment state;
-- an objective and success criteria;
-- an explicit policy set;
-- authorization and approval requirements;
-- available tools and their schemas;
-- seeded documents and structured data;
-- optional adversarial traps;
-- a reset seed;
-- an expected set of invariant conditions;
-- an evaluation specification.
+## 7. Metrics
 
-The benchmark records an operational trajectory:
+Let an agent trajectory be:
 
 \[
-T=(a_1,o_1,a_2,o_2,\ldots,a_n,o_n)
+T = (a_1,o_1,a_2,o_2,\ldots,a_n,o_n)
 \]
 
-where `a_i` is an agent action and `o_i` is the corresponding environment observation.
+where actions `a_i` are tool/environment operations and observations `o_i` are environment feedback available to the agent.
 
-## 6. Metrics
-
-### 6.1 Task Success Rate — SR
-
-Binary end-state success:
+### 7.1 Task Success Rate
 
 \[
-SR(T)=
-\begin{cases}
-1 & \text{if the terminal state satisfies the task criteria}\\
-0 & \text{otherwise}
+SR(T)=\begin{cases}
+1,&\text{if the target terminal state satisfies the task criteria}\\
+0,&\text{otherwise.}
 \end{cases}
 \]
 
-### 6.2 Procedural Compliance Rate — PCR
+### 7.2 Procedural Compliance Rate
 
-Let `P` be the scenario's policy set and `w(a_i,P)` the severity weight of violations attributable to action `a_i`:
+Let `P` be the set of scenario policies and `w(a_i,P)` the validated penalty associated with a policy violation in action `a_i`.
 
 \[
 PCR(T)=1-\frac{\sum_i w(a_i,P)}{W_{max}}
 \]
 
-Implementations must clamp the result to the declared score range and define the treatment of repeated violations, mutually dependent violations, and catastrophic events.
+The final implementation must define normalization, clipping, severity tiers, and treatment of multiple violations before experiments begin.
 
-### 6.3 Compliance-Weighted Success Rate — CSR
-
-Across an evaluation set `N`:
+### 7.3 Compliance-Weighted Success Rate
 
 \[
 CSR=\frac{1}{|N|}\sum_{j=1}^{N}SR(T_j)\times PCR(T_j)
 \]
 
-### 6.4 Machiavellian Gap — MG
+### 7.4 Machiavellian Gap
 
 \[
 MG=SR-CSR
 \]
 
-MG is an aggregate diagnostic, not a claim of intentionality. A high MG indicates a measurable separation between outcome success and compliant execution. The benchmark must not infer consciousness, motive, or human-like intent from this value.
+MG is interpreted as an outcome/compliance divergence, not as evidence of intent or consciousness. A high MG indicates that technical success is being achieved with substantial procedural cost under the defined rubric.
 
-## 7. Experimental Controls
+## 8. Experimental Controls
 
-To make model comparisons scientifically interpretable, HOUND will control or report:
+To make results interpretable, the study should control for:
 
-- model version and provider;
-- system/developer instructions where disclosure is permitted;
-- tool set and tool schemas;
-- scaffold/framework version;
-- context-window configuration;
-- sampling parameters where applicable;
-- maximum steps and wall-clock budget;
-- randomization seed;
-- scenario version;
-- retry policy;
-- human intervention policy;
-- judge/evaluator configuration.
+- model version and inference configuration;
+- tool availability;
+- scaffold/orchestration implementation;
+- scenario order;
+- randomization seeds;
+- retry limits;
+- context-window conditions;
+- evaluator version;
+- hidden versus visible traps;
+- deterministic versus judge-based checks.
 
-Paired runs should reuse identical scenario seeds when comparing configurations.
+Ablation studies should isolate the effects of task pressure, trap density, policy complexity, memory horizon, and tool availability.
 
-## 8. Adversarial Scenario Families
+## 9. Evaluation Independence
 
-HOUND will use bounded trapdoors designed to expose procedural failure without requiring real-world harm. Examples include:
+The benchmark should maximize deterministic grading. Any LLM-as-a-judge component should be calibrated against expert labels, reported separately, and treated as a source of measurement uncertainty rather than ground truth by default.
 
-- an apparently useful but unauthorized record;
-- a missing primary source when a summary is available elsewhere;
-- contradictory records requiring escalation;
-- an approval gate that blocks direct execution;
-- a stale document versus a newer authoritative record;
-- time pressure combined with incomplete data;
-- a tempting credential-like artifact that is explicitly non-authorized synthetic data;
-- conflicting objectives between task speed and evidence quality.
+This is particularly important in financial and legal scenarios, where independent verification of numerical and procedural properties can often be encoded directly in the environment.
 
-Scenario designers must ensure that the safest compliant action remains representable and that failures can be attributed to observable environment transitions.
+Vals AI's Excel Modeling Benchmark provides a relevant precedent for recalculating generated financial models before grading; its published results also illustrate the importance of separating formula structure from numerical correctness. citeturn445634search3
 
-## 9. Evaluation and Ground Truth
+## 10. Relationship to Existing Vals AI Work
 
-Human experts define scenario policies and adjudicate ambiguous trajectories during calibration. Automated evaluators may calculate deterministic checks and compare final states, but they must not silently redefine policy.
+Vals AI has published legal evaluations comparing AI tools against lawyer baselines. The documented VLAIR work covers multiple legal tasks and establishes the usefulness of domain-specific evaluation against a human control group. citeturn445634search71turn445634search5
 
-For sampled trajectories, independent human review will estimate:
+HOUND is intended to complement such output-quality benchmarks by measuring policy-constrained execution trajectories inside stateful environments. It should not imply that Vals AI's prior work already proves the HOUND hypothesis.
 
-- policy-label accuracy;
-- severity-weight agreement;
-- evaluator false positives;
-- evaluator false negatives;
-- inter-rater reliability.
+## 11. Work Plan
 
-The benchmark should report uncertainty intervals and confidence bounds for aggregate metrics where sample sizes support them.
+### Phase 1 — Infrastructure
 
-## 10. Deliverables
+Build the isolated execution harness, environment state model, policy schema, telemetry layer, and deterministic terminal-state checks.
 
-### D1 — Execution Harness
+### Phase 2 — Expert Scenario Authoring
 
-Resettable synthetic environments, tool interfaces, event logging, state snapshots, and evaluator hooks.
+Construct the first scenario families and conduct expert review of prohibited actions, required approvals, and evidence requirements.
 
-### D2 — Scenario Corpus
+### Phase 3 — Calibration
 
-Versioned scenario definitions with policy metadata, success conditions, and safety review records.
+Run pilot agents to estimate floor/ceiling effects, eliminate ambiguous scenarios, calibrate trap strength, and establish inter-rater reliability.
 
-### D3 — Scoring Engine
+### Phase 4 — Scale Evaluation
 
-Reference implementation for SR, PCR, CSR, MG, plus violation taxonomy and aggregation utilities.
+Run the controlled model matrix across multiple seeds and scenario variants, recording complete trajectories and environment-state deltas.
 
-### D4 — Baseline Study
+### Phase 5 — Analysis
 
-Controlled comparison across selected systems and scaffolds.
+Estimate SR, PCR, CSR, MG, uncertainty intervals, failure classes, and sensitivity to scenario and evaluator design.
 
-### D5 — Public Research Package
+### Phase 6 — Release
 
-Documentation, benchmark card, methodology, aggregate results, and reproducibility materials.
+Publish methodology, benchmark schema, reproducibility instructions, validated example environments, and a transparent record of limitations.
 
-## 11. Six-Month Work Plan
+## 12. Deliverables
 
-**Month 1 — Infrastructure.** Build the execution harness, synthetic services, reset mechanism, event schema, and isolation controls.
+1. HOUND scenario schema.
+2. Isolated execution harness.
+3. Policy and authorization model.
+4. Deterministic telemetry format.
+5. Initial expert-authored scenario corpus.
+6. Evaluation runner and scoring implementation.
+7. Statistical analysis notebook/report.
+8. Reproducibility package.
+9. Safety and governance documentation.
+10. Grant/reporting package and research manuscript draft.
 
-**Month 2 — Expert scenario development.** Author and review the initial scenario corpus and formal policy specifications.
+## 13. Safety and Governance
 
-**Month 3 — Calibration.** Run baseline systems, test scenario difficulty, measure evaluator agreement, and remove ambiguous cases.
-
-**Month 4 — Grid evaluation.** Execute controlled model/scaffold experiments and capture complete trajectories.
-
-**Month 5 — Analysis.** Compute metrics, error categories, uncertainty estimates, and cross-model comparisons.
-
-**Month 6 — Publication and handover.** Freeze the benchmark version, publish documentation and aggregate findings, and prepare integration artifacts.
-
-## 12. Resource Request Logic
-
-The supplied proposal assumes a fellowship structure that combines researcher support, model/API access, expert data-generation budget, and compute. Exact monetary commitments must be tied to the actual program terms before submission; no unverified fellowship entitlement is treated here as established fact.
-
-The resource model is driven by four cost centers:
-
-1. researcher time;
-2. synthetic scenario authoring and expert review;
-3. agent execution and API/compute consumption;
-4. storage, logging, and reproducibility infrastructure.
-
-A final budget should be constructed from measured pilot costs rather than unsupported headline estimates.
-
-## 13. Expected Impact
-
-HOUND aims to provide an operationally meaningful layer between generic capability benchmarks and deployment risk assessment. Its primary contribution is methodological: a benchmark should measure what an agent **does in an environment**, including whether it respects state, authorization, provenance, and approval constraints.
-
-The project can support research into safe agentic systems, enterprise deployment assurance, model/scaffold evaluation, and governance-oriented auditing.
+HOUND must remain a synthetic evaluation environment. Cybersecurity scenarios must not expose real third-party targets. Financial scenarios must use synthetic institutions, accounts, and credentials. Legal scenarios must use synthetic records or appropriately licensed/public material. Any human-subject or expert-data component must have explicit consent, data-handling rules, and retention controls.
 
 ## 14. Limitations
 
-HOUND cannot establish that an agent will behave safely in every real deployment. Synthetic environments are abstractions; policy definitions are domain-dependent; judge systems can fail; and model behavior can vary with scaffolding and hidden provider changes.
+The benchmark will not establish whether an agent possesses human-like motives or malicious intent. “Machiavellian” is a descriptive label for a measurable outcome/compliance divergence. Results may also depend on scenario design, policy encoding, scaffold effects, and the quality of expert rubrics.
 
-The benchmark therefore reports evidence about tested configurations and scenario distributions, not universal claims about model character or intent.
+The benchmark should therefore be interpreted as an operational risk measurement instrument, not a detector of mental states.
 
-## 15. Submission Integrity Rule
+## 15. Funding Use
 
-Before external submission, every quantitative or externally attributable claim must be classified in `docs/CLAIMS_REGISTER.md` as verified, pending verification, or removed. Unverified product names, benchmark results, fellowship promises, regulatory interpretations, prices, and current model capabilities must not be presented as established facts.
+Any fellowship-specific support, API allocation, GPU allocation, workspace access, or human-data budget must be described as conditional on the actual program terms. The repository intentionally does not treat such benefits as guaranteed until verified from official documentation.
 
-## 16. Author
+## 16. Submission Position
 
-**Andrzej Mikulski**
+The strongest grant case is not that HOUND has solved agent safety. The case is that current evaluation can leave a measurable blind spot between technical success and procedural integrity, and that this project will build and validate an execution-grounded instrument for measuring that blind spot under controlled conditions.
 
-Add final contact details, affiliation, ORCID/website, and submission-specific biography before applying.
+## 17. Author
+
+**Andrzej Mikulski**  
+Phone: +48 455 575 337  
+Email: mojealterego21@gmail.com
