@@ -1,15 +1,19 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "hound-eval"
-version = "0.1.0"
-description = "Execution-grounded benchmark scaffolding for procedural compliance of long-horizon AI agents."
+version = "0.2.0"
+description = "Execution-grounded benchmark for procedural compliance of long-horizon AI agents."
 requires-python = ">=3.10"
 authors = [{name = "Andrzej Mikulski", email = "mojealterego21@gmail.com"}]
 readme = "README.md"
 license = {file = "LICENSE"}
+dependencies = ["PyYAML>=6.0,<7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "ruff>=0.6,<1"]
 
 [tool.pytest.ini_options]
 addopts = "-q"
@@ -20,3 +24,6 @@ line-length = 100
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
