@@ -110,3 +110,18 @@ Benchmark release, documentation, reproducibility package, publication artifacts
 **Gate E — Comparative fairness:** model comparisons use identical environment, policy, and budget controls.
 
 **Gate F — Release readiness:** all public scenarios, scoring code, documentation, and claims have versioned provenance.
+
+## Grant-facing milestone matrix
+
+| Milestone | Evidence produced | Decision gate |
+|---|---|---|
+| M1 | Working isolated harness + event schema | Isolation and replay pass |
+| M2 | 12-scenario vertical slice | Scenario validity and evaluator agreement |
+| M3 | Calibrated difficulty/trap suite | No material floor/ceiling effect in pilot |
+| M4 | Controlled model/scaffold runs | Fair-comparison audit passed |
+| M5 | Statistical analysis package | Metrics reproducible from raw run artifacts |
+| M6 | Release candidate | Documentation, provenance, and safety review passed |
+
+## No overclaiming rule
+
+The repository must not describe the 300-scenario benchmark, broad model matrix, or production integration as completed until the relevant artifacts actually exist and are versioned. The six-month schedule in the proposal is a plan, not evidence of completion.
