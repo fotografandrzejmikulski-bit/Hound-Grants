@@ -1,32 +1,31 @@
 # Program Verification Gate
 
-The supplied proposal targets a program described as **Vals AI Fellowship 2026**. Before external submission, this document requires primary-source confirmation of every program-specific assertion.
+_Last reviewed: 2026-09-05_
 
-## Required evidence
+## Verified public information
 
-Record the official URL, retrieval date, and exact wording for:
+Publicly available Vals AI Fellowship information describes a **3–6 month** fellowship focused on difficult AI evaluation problems and benchmark/evaluation techniques. Vals AI's public announcement states that the fellowship offers **unlimited API credits, budget capacity for GPUs and human data, Vals evaluation infrastructure, a $1,000–$2,500/week stipend, and a research network**, with both remote and San Francisco participation considered. The same announcement links to the application and states a **June 30, 2026** application deadline/rolling-admission framing. citeturn359810search1
 
-1. Official program name.
-2. Applicant eligibility.
-3. Geographic/residency requirements.
-4. Application opening and closing dates.
-5. Required application materials.
-6. Selection criteria.
-7. Award amount or stipend range.
-8. API credits or model access, if any.
-9. GPU/compute access, if any.
-10. Human-data or expert-budget support, if any.
-11. Workspace or in-person requirements, if any.
-12. Intellectual-property terms.
-13. Publication expectations.
-14. Reporting obligations.
-15. Data-sharing/confidentiality provisions.
-16. Contact/application channel.
+An independent public listing also records the fellowship as running from May 25 to June 30, 2026, with a 3–6 month duration, remote/in-person flexibility, and a focus on hard AI-evaluation problems. citeturn359810search0
 
-## Current status
+## Important date condition
 
-**UNVERIFIED.** The repository must not state that any of these benefits are guaranteed until the official program documentation is identified and checked.
+The current date is September 5, 2026. The publicly advertised June 30, 2026 application deadline has therefore passed. The repository must **not** imply that applications are currently open unless a new official announcement establishes a later round.
+
+## Still requiring primary-source confirmation
+
+Before using program-specific claims in a future application or correspondence, confirm from the current official application page or Vals AI directly:
+
+1. whether a new 2026/2027 application round is open;
+2. current eligibility requirements;
+3. current geographic/residency restrictions, if any;
+4. current application route;
+5. current dates;
+6. current IP/publication terms;
+7. confidentiality and data-sharing terms;
+8. reporting obligations;
+9. whether all advertised resources apply to every fellow or depend on project needs.
 
 ## Submission rule
 
-Replace narrative phrases such as “guarantees,” “unlimited API credits,” “dedicated budget,” or “direct access” with conditional language until primary-source evidence is recorded.
+Use the public program details above only with their applicable date context. Never represent a closed June 30, 2026 application cycle as currently open.
