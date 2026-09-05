@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "HOUND — Heuristic Observation of Unaligned Networked Decisions"
+type: software
+message: "Please cite this repository when referencing the HOUND benchmark proposal or implementation."
+authors:
+  - family-names: "Mikulski"
+    given-names: "Andrzej"
+repository-code: "https://github.com/fotografandrzejmikulski-bit/Hound-Grants"
+license: "MIT"
+version: "0.1.0"
+date-released: "2026-09-05"
