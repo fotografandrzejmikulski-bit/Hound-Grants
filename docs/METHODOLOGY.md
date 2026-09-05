@@ -207,9 +207,7 @@ The preferred experiment is a crossed design that varies model and scaffold sepa
 
 HOUND scenarios should be newly authored, versioned, and released in stages. The evaluation protocol should separate development, calibration, public demonstration, and held-out test sets.
 
-The key rationale is empirically supported by current benchmark practice: OpenAI reported in February 2026 that SWE-bench Verified had contamination and test-quality problems and recommended less-contaminated alternatives; in July 2026 it further reported substantial task-quality problems in SWE-bench Pro. citeturn153512search0turn153512search1
-
-HOUND should therefore treat private or delayed-release scenario material as a methodological control, not merely an administrative preference.
+The benchmark should document its contamination controls explicitly: generation provenance, scenario release dates, hash-locked held-out sets, and model/evaluation dates. Claims about contamination in external benchmarks should be cited individually in the final paper rather than used as unsupported blanket statements.
 
 ## 12. Human Calibration
 
