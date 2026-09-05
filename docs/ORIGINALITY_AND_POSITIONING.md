@@ -1,27 +1,64 @@
 # Originality and Positioning
 
-## Why this document exists
+## 1. Purpose
 
-The supplied grant narrative presents HOUND as a new benchmark for procedural compliance under execution pressure. A 2026 paper, *Beyond Goodhart's Law: A Dynamic Benchmark for Evaluating Compliance in Multi-Agent Systems*, introduces MAC-Bench and explicitly uses closely overlapping problem framing and terminology, including procedural compliance, dynamic/adversarial environments, Compliance-Weighted Success Rate (CSR), and Machiavellian Gap (MG). citeturn445634academia72
+This document defines how HOUND should be positioned against related work. It is intentionally conservative: novelty is treated as a claim that must be demonstrated, not assumed.
 
-The HOUND submission must therefore avoid an absolute novelty claim until a formal prior-art review is complete.
+## 2. Material Prior Work
 
-## Defensible positioning
+A June 2026 paper, *Beyond Goodhart's Law: A Dynamic Benchmark for Evaluating Compliance in Multi-Agent Systems*, introduces MAC-Bench. Its public repository describes a dynamic adversarial framework for process compliance with sandbox environments, trajectory audit logs, deterministic/hybrid auditing, and metrics including SR, CR, CSR, and Machiavelli Gap. citeturn935135academia53turn935135search0
 
-HOUND can be differentiated by specifying a narrower and testable contribution, for example:
+This creates direct conceptual overlap with the original HOUND proposal. In particular, HOUND must not claim to be the first benchmark to:
 
-1. **Execution-grounded state verification:** scoring observable environment mutations and authorization events rather than relying primarily on generated text.
-2. **Cross-domain policy execution:** one benchmark framework covering synthetic legal, financial, scientific, and cyber/IT workflows with domain-specific policy sets.
-3. **Independent deterministic controls:** using environment invariants and event logs wherever possible, minimizing dependence on an LLM judge for consequential compliance decisions.
-4. **Failure attribution:** distinguishing incompetence, uncertainty, tool failure, policy violation, and strategic shortcutting rather than collapsing them into one score.
-5. **Reproducible trap calibration:** publishing scenario generators, policy schemas, seed management, and evaluation controls so adversarial pressure can be reproduced.
+- evaluate procedural compliance during agent execution;
+- use dynamic or adversarial sandbox environments;
+- use trajectory-level auditing;
+- use Compliance-Weighted Success Rate (CSR); or
+- use Machiavellian/Machiavelli Gap terminology.
 
-These are positioning hypotheses, not claims that the literature already proves HOUND is unique.
+## 3. Defensible HOUND Contribution
 
-## Required before submission
+HOUND should instead make a narrower, experimentally falsifiable claim:
 
-Complete a structured literature review covering dynamic agent benchmarks, policy-compliance evaluation, tool-use safety, reward hacking/Goodhart evaluation, long-horizon agent evaluation, and the specific MAC-Bench lineage. Record competing systems, publication dates, overlapping metrics, environment design, and the exact differentiator HOUND adds.
+> HOUND proposes a benchmark architecture centered on independently verifiable environment-state mutations, explicit authorization and approval state, deterministic invariants, and cross-domain failure attribution, with CSR/MG used as summary diagnostics rather than as the novelty claim itself.
 
-## Language rule
+The proposed differentiators are:
 
-Avoid phrases such as “unprecedented,” “first,” “only,” “unique,” or “new standard” unless supported by a documented systematic review. Prefer measurable language such as “we propose,” “we evaluate,” “we operationalize,” and “we test whether.”
+1. **State-first verification.** Policy-relevant claims should be grounded in explicit state transitions, authorization events, approval state, and provenance records.
+2. **Deterministic-first evaluation.** Consequential scoring should be deterministic wherever the environment can make the property machine-checkable.
+3. **Attribution.** Failures should be classified across incompetence, retrieval/provenance error, tool failure, environment fault, authorization violation, approval violation, and outcome/compliance divergence.
+4. **Cross-domain experimental controls.** The same evaluator architecture should be tested across synthetic finance, legal/document, science/analysis, and cyber/IT workflows while keeping domain policies explicit and versioned.
+5. **Model/scaffold separation.** Experimental design should cross model and scaffold variables so benchmark results do not accidentally become a measure of orchestration quality alone.
+6. **Contamination-aware release.** Development, calibration, demonstration, and held-out evaluation sets should be separated and versioned.
+
+These differentiators remain hypotheses until implemented and compared empirically with relevant baselines.
+
+## 4. What HOUND Must Demonstrate
+
+A strong originality case requires an implemented vertical slice and an empirical comparison against at least one established process-compliance benchmark or reproduction of its core evaluation setup. The comparison should report:
+
+- task-success measurement;
+- compliance measurement;
+- state/invariant coverage;
+- judge dependence;
+- seed/replay reproducibility;
+- model/scaffold sensitivity;
+- failure attribution resolution;
+- evaluation cost.
+
+## 5. Language Rule
+
+Do not use “first,” “unprecedented,” “only,” “unique,” “new standard,” or similar absolute novelty language without a systematic literature review and documented comparative evidence.
+
+Prefer:
+
+- “we propose”;
+- “we operationalize”;
+- “we measure”;
+- “we test whether”;
+- “we compare”; and
+- “we evaluate the extent to which.”
+
+## 6. Strategic Grant Position
+
+The grant case should not depend on winning a novelty contest against MAC-Bench. The stronger case is that HOUND addresses a concrete evaluation need with a state-verifiable, reproducible, cross-domain experimental design and that its claims will be validated rather than asserted.
