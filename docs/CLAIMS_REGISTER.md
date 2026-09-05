@@ -1,40 +1,50 @@
 # Claims Register
 
-This register separates externally checkable factual claims from project definitions, hypotheses, and projections. It is a submission-control document, not a claim that every statement in the original proposal is independently verified.
+This register separates externally checkable factual claims from project definitions, hypotheses, and projections. It is a submission-control document.
 
 ## Status vocabulary
 
 - **VERIFIED** — checked against a credible primary or near-primary source.
 - **PARTIAL** — the general claim is supported, but the exact figure, date, model/version, or wording needs additional verification.
 - **UNVERIFIED** — not yet independently verified.
-- **PROJECT DEFINITION** — a term, metric, architecture, or requirement introduced by HOUND itself.
+- **PROJECT DEFINITION** — a term, metric, architecture, or requirement introduced by HOUND.
 - **PROJECTION** — a future expectation or target rather than an observed fact.
 
 ## Priority claims
 
 | Claim area | Current status | Submission action |
 |---|---|---|
-| Vals AI VLAIR exists and evaluates legal-AI workflows against a lawyer baseline | VERIFIED | Cite the official report in final grant materials. |
-| Vals AI Excel Modeling Benchmark exists and evaluates working financial models | VERIFIED | Cite the primary Vals source; do not rely solely on social reposts. |
-| Exact 2026 model names, leaderboard positions, and prices in the supplied proposal | PARTIAL/UNVERIFIED | Verify each item individually at the cited primary source and record retrieval date. |
-| The original proposal's statement that HOUND is a 'pioneering' or 'unprecedented' benchmark | UNVERIFIED | Replace with a narrower novelty claim after prior-art review. |
-| CSR and Machiavellian Gap as HOUND metrics | PROJECT DEFINITION | Present as HOUND's proposed metrics unless the literature review establishes prior use. |
-| HOUND's six-month implementation plan | PROJECTION | Present as a proposed work plan, not an achieved capability. |
-| 300 expert scenarios | PROJECTION | Present as the planned corpus size; specify sampling and power rationale during study design. |
-| Unlimited API credits, GPU budget, human-data budget, office access, or other program benefits attributed to a fellowship | UNVERIFIED | Do not state as guaranteed until confirmed by the official program terms. |
-| Regulatory requirements associated with GDPR/RODO, PIPL, DORA, NYDFS Part 500, ISO/IEC 42001 | PARTIAL | Verify jurisdiction, applicability, exact clause/scope, and current version before using each as a scoring rule. |
-| Cybersecurity performance ratios and autonomous offensive/defensive claims from the original proposal | UNVERIFIED | Recheck against original benchmark papers/reports; omit unsupported ratios from the executive summary. |
-| Scientific benchmark figures for ScienceWorld, DiscoveryWorld, Corral, CyBench/CyberBench, etc. | UNVERIFIED | Verify exact benchmark, version, model, task set, and date before publication. |
-| HOUND must use synthetic isolated environments with no production credentials or real targets | PROJECT REQUIREMENT | Keep as a hard safety boundary. |
+| Vals AI legal evaluation work / VLAIR | VERIFIED/PRIMARY-SOURCE CONTROLLED | Cite the original Vals material in final submission. |
+| Vals AI Excel Modeling Benchmark | VERIFIED/PRIMARY-SOURCE CONTROLLED | Cite the original Vals material in final submission. |
+| Exact model names, benchmark scores, rankings, prices, and dates inherited from the supplied draft | PARTIAL/UNVERIFIED | Verify every item individually or remove it. |
+| “Pioneering”, “unprecedented”, “first”, or “unique” HOUND claims | NOT DEFENSIBLE FROM CURRENT EVIDENCE | Do not use absolute novelty language. |
+| CSR and Machiavellian Gap as original HOUND inventions | FALSE/OVERLAPPING PRIOR ART | Treat as established related-work concepts; HOUND's novelty must come from measurable differentiators. |
+| HOUND six-month implementation plan | PROJECTION | Present as a proposed work plan. |
+| 300 expert-authored scenarios | PROJECTION | Present as a target corpus size subject to pilot calibration and statistical justification. |
+| Vals Fellowship benefits | PUBLICLY ADVERTISED, DATE-QUALIFIED | State only with 2026 date context; verify current round before any new application. |
+| Current fellowship application status | CLOSED FOR ADVERTISED JUNE 30, 2026 DEADLINE | Do not imply that the 2026 application remains open. |
+| Regulatory requirements associated with GDPR/RODO, PIPL, DORA, NYDFS Part 500, ISO/IEC 42001 | PARTIAL | Verify jurisdiction, applicability, scope, and current version before using as scoring rules. |
+| Cybersecurity ratios and scientific benchmark figures from the supplied draft | UNVERIFIED | Omit from executive narrative unless individually verified. |
+| Synthetic-only isolation and no-production-target policy | PROJECT REQUIREMENT | Keep as a hard safety boundary. |
 
-## Novelty warning
+## Critical prior-art finding
 
-A 2026 paper titled **“Beyond Goodhart's Law: A Dynamic Benchmark for Evaluating Compliance in Multi-Agent Systems”** describes MAC-Bench and explicitly discusses procedural compliance, adversarial pressure, CSR, and the Machiavellian Gap. This materially overlaps the supplied HOUND framing. The final proposal therefore must identify the differentiating contribution of HOUND instead of claiming an unexplored problem space. citeturn445634academia72
+The June 2026 MAC-Bench paper explicitly presents dynamic adversarial process-compliance evaluation, sandbox execution, trajectory auditing, and CSR/Machiavellian-gap metrics. The public repository also documents deterministic/hybrid auditing and unified trajectory logs. citeturn935135academia53turn935135search0
 
-## Evidence notes
+Therefore, the current HOUND proposal deliberately avoids claiming those ideas as wholly novel.
 
-The VLAIR record is externally corroborated as a Vals AI legal evaluation program. A primary report available through UC Berkeley's hosted copy describes four evaluated products, 200 U.S. legal research questions, weighted criteria, and the lawyer baseline. citeturn445634search71
+## Fellowship evidence
 
-Vals AI's Excel Modeling Benchmark is also externally corroborated: Vals AI describes the benchmark as evaluating complete, working financial models, with Excel recalculation before grading; its published results include Claude Opus 4.8 at 69.4%, Claude Sonnet 5 at 66.3%, and GPT-5.5 at 64.5%. citeturn445634search3
+Vals AI's public June 2026 announcement describes a 3–6 month fellowship focused on AI evaluation and states that it provides unlimited API credits, budget capacity for GPUs and human data, Vals evaluation infrastructure, a $1,000–$2,500/week stipend, and both remote and San Francisco participation; it references a June 30, 2026 application deadline. citeturn359810search1
 
-These verified examples do **not** automatically verify the remaining numerical claims in the original proposal. Each must be traced separately.
+An independent public listing corroborates the 3–6 month duration, June 30, 2026 deadline, and remote/in-person structure. citeturn359810search0
+
+As of September 5, 2026, those advertised 2026 application dates are in the past. The repository therefore treats **current application availability, eligibility, and any future cycle** as unresolved until an official current announcement is identified.
+
+## Submission rule
+
+Every externally checkable claim in the final application must have one of three treatments:
+
+1. a primary-source citation;
+2. a clearly labeled project hypothesis/projection; or
+3. removal from the application narrative.
