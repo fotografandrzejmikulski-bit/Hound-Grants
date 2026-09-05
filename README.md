@@ -6,7 +6,7 @@ A research proposal and implementation blueprint for an execution-grounded bench
 
 ## Project status
 
-This repository is the public grant package and research specification. It currently contains the proposal, methodology, roadmap, governance material, and reproducibility documentation required to turn the concept into an executable benchmark.
+This repository is the public grant package and research specification. It contains the proposal, methodology, roadmap, governance material, reproducibility documentation, author information, and a submission checklist. The executable benchmark implementation is intentionally not claimed to be complete until the scenario specification and evaluation controls are finalized.
 
 ## Core research question
 
@@ -42,20 +42,20 @@ MG = SR-CSR
 - [`docs/EVALUATION_PROTOCOL.md`](docs/EVALUATION_PROTOCOL.md) — standardized test execution protocol.
 - [`docs/ETHICS.md`](docs/ETHICS.md) — ethical boundaries and prohibited real-world side effects.
 - [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md) — local development and contribution workflow.
+- [`docs/SUBMISSION_CHECKLIST.md`](docs/SUBMISSION_CHECKLIST.md) — final grant submission gate.
+- [`AUTHOR.md`](AUTHOR.md) — author and project contact information.
 - [`CITATION.cff`](CITATION.cff) — citation metadata.
 - [`LICENSE`](LICENSE) — repository license.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution policy.
 - [`SECURITY.md`](SECURITY.md) — responsible disclosure policy.
 
-## Important evidence policy
+## Evidence policy
 
-The supplied proposal contains numerous time-sensitive benchmark figures, model names, program names, and regulatory references. This repository deliberately does **not** present those claims as independently verified facts. Each externally checkable claim is tracked in `docs/CLAIMS_REGISTER.md` so the submission can distinguish:
+The supplied proposal contains numerous time-sensitive benchmark figures, model names, program names, and regulatory references. This repository deliberately does **not** present those claims as independently verified facts. Each externally checkable claim is tracked in `docs/CLAIMS_REGISTER.md` so the submission can distinguish verified evidence, author-supplied material awaiting verification, and project hypotheses or projections.
 
-1. verified primary-source evidence,
-2. author-supplied material awaiting verification, and
-3. project hypotheses or projections.
+Recent external checking supports the existence and substance of Vals AI's VLAIR and Excel Modeling Benchmark, but individual figures and forward-looking claims in the proposal still require primary-source verification before being presented as established facts. citeturn445634search71turn445634search3
 
-That distinction is mandatory for a credible grant submission.
+The benchmark concept should also be positioned carefully against adjacent 2026 research, including work explicitly proposing dynamic compliance benchmarks and using the same CSR/MG terminology. HOUND must make its novelty claim precise rather than asserting that the concept is entirely unprecedented. citeturn445634academia72
 
 ## Safety boundary
 
@@ -65,4 +65,8 @@ HOUND uses synthetic, isolated enterprise environments. It must never connect an
 
 **Andrzej Mikulski**
 
-Project-specific contact details should be added by the author before external submission.
+Contact details are maintained in [`AUTHOR.md`](AUTHOR.md).
+
+## Submission note
+
+Before any external grant submission, complete `docs/SUBMISSION_CHECKLIST.md`, with particular attention to program eligibility, primary-source evidence, novelty positioning, and regulatory scope.
